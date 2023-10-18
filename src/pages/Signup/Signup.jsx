@@ -2,10 +2,11 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { AiFillEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
+import { enqueueSnackbar } from 'notistack';
 
 const Signup = () => {
 
-    const {user,loading,createUser} = useAuth();
+    const {createUser} = useAuth();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -15,9 +16,22 @@ const Signup = () => {
         const newUser = {email,password};
         console.log(newUser);
 
+
+        if (!/(?=.*[!#$%&?^*@~() "])/.test(password)) {
+            return enqueueSnackbar('Password should have a special character!',{variant:'error'})
+        }else if (!/[A-Z]/.test(password)) {
+            return enqueueSnackbar('Password should have a capital letter !',{variant:'error'})
+        }else if(!/(?=.{8,})/.test(password)){
+            return enqueueSnackbar('Password should have minimum six character !',{variant:'error'})
+        }
+
         createUser(email,password)
-        .then(()=>alert('done!'))
-        .catch(err=>alert(err))
+        .then(()=>{
+            enqueueSnackbar('done',{variant:'success'})
+        })
+        .catch(err=>{
+            enqueueSnackbar(`${err}`,{variant:'error'})
+        })
     }
 
     return (

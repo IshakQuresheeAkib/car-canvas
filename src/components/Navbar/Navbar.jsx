@@ -4,6 +4,7 @@ import './navbar.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import useAuth from "../../hook/useAuth";
+import { enqueueSnackbar } from 'notistack';
 
 const Navbar = () => {
 
@@ -16,7 +17,11 @@ const Navbar = () => {
     AOS.refresh();
  
     const handleLogin = () => {
-        user ? logOut() : navigate('/login')
+        if (!user) {
+            return navigate('/login');
+        }
+        logOut()
+        enqueueSnackbar('Logged Out Successfully!',{variant:'success'})         
     }
    
     return (
