@@ -1,7 +1,7 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase";
-
+import { SnackbarProvider  } from "notistack";
  
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider();
@@ -51,7 +51,9 @@ const AuthProvider = ({children}) => {
 
     return (
     <AuthContext.Provider value={authInfo}>
-        {children}
+        <SnackbarProvider autoHideDuration={1500} anchorOrigin={{horizontal:'center',vertical:'top'}} style={{fontWeight:'600',fontSize:'16px'}} preventDuplicate={true}>
+                {children}                
+            </SnackbarProvider>
     </AuthContext.Provider>
     );
 };
