@@ -1,19 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { stack as Menu } from 'react-burger-menu'
 import './navbar.css'
-import { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 const Navbar = () => {
 
-    useEffect(()=>
-    AOS.init()
-    ,[])
+    
+    AOS.init({
+        duration: 1200, 
+    });
+    AOS.refresh();
+ 
    
     return (
         <div className="relative w-full h-full text-white">
-            <nav className="fixed w-full top-0 bg-black/80 flex justify-between items-center md:py-4 py-3">
+            <nav className="fixed w-full top-0 bg-black/80 flex justify-between items-center md:py-4 py-3 z-50" data-aos='slide-down'>
                 <div className="flex items-center md:ml-0 ml-10">
                     <img src="./logo.png" alt="" className="md:w-24 w-14 top-0 -rotate-12 absolute ml-9" />
                     <h1 className="font-bold md:text-3xl text-2xl ml-16 md:mt-6 ">Car <span className="bg-gradient-to-l bg-clip-text text-transparent from-lightRed to-darkRed">Canvas</span></h1>
