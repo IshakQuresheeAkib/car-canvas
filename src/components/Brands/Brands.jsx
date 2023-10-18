@@ -7,8 +7,9 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
+AOS.init();
 AOS.init({
-    duration: 2000, 
+    duration: 3000, 
 });
 AOS.refresh();
 
@@ -16,8 +17,8 @@ AOS.refresh();
 const Brands = () => {
     return (
         <div className="my-20">
-            <h1 className="text-4xl text-center font-semibold" data-aos='fade-in'>The Pinnacle <br /> of <br /><span className='bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
-            <hr className='w-72 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-l from-lightRed to-darkRed'/>
+            <h1 className="text-4xl text-center font-semibold" data-aos='zoom-in-down' data-aos-delay="500"> The Pinnacle <br /> of <br /><span className='text-5xl bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
+            <hr className='w-48 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-l from-lightRed '/>
             {/* <!-- Slider main container --> */}
             <>
         <Swiper
