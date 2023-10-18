@@ -6,6 +6,8 @@ import './brands.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { useState } from 'react';
+
 
 AOS.init();
 AOS.init({
@@ -15,9 +17,22 @@ AOS.refresh();
 
 
 const Brands = () => {
+
+  const [clickedText,setClickedText] = useState('')
+
+  const handleBrand = (e) => {
+    const text =  e.target.textContent;
+    setClickedText(text)
+    
+  }
+
+  console.log(clickedText);
+
+  
+
     return (
         <div className="my-20">
-            <h1 className="text-4xl text-center font-semibold" data-aos='zoom-in-down' data-aos-delay="500"> The Pinnacle <br /> of <br /><span className='text-5xl bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
+            <h1 className="text-4xl text-center font-semibold" data-aos='zoom-out-down' data-aos-delay="500"> The Pinnacle <br /> of <br /><span className='text-5xl bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
             <hr className='w-48 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-l from-lightRed '/>
             {/* <!-- Slider main container --> */}
             <>
@@ -39,12 +54,12 @@ const Brands = () => {
         >
         <SwiperSlide>
           <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
-          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>FERRARI</h3></div>
+          <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>FERRARI</h3></div>
           <img src="https://i.ibb.co/SdBfmFS/fernando-hernandez-2k-F1y-Hd39-E-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
         <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
-          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>JAGUAR</h3></div>
+          <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>JAGUAR</h3></div>
           <img src="https://i.ibb.co/f0nKSKt/jeff-tumale-Az-X4h-RFGCe-E-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
