@@ -5,7 +5,6 @@ const PrivateRoutes = ({children}) => {
 
     const {user,loading} = useAuth();
     const {pathname} = useLocation();
-    console.log(location);
 
     if (loading) {
         return <p className="text-5xl">Loading...</p>
