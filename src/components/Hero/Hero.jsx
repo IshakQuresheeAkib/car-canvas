@@ -9,7 +9,7 @@ const Hero = () => {
             </div>
             <div className="text-5xl text-white absolute translate-y-1/2 md:top-[42%] top-[10%] md:left-16 md:text-left text-center ">
                 <p className="md:text-5xl text-4xl font-semibold mb-6 focus-in-contract">Where Elegance Meets the Road!</p>
-                <button className="btn px-7 rounded bg-gradient-to-l from-lightRed to-darkRed text-white normal-case border-none">Explore</button>
+                <button className="btn px-7 rounded bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case border-none">Explore</button>
             </div>
             <Navbar></Navbar> 
         </div>

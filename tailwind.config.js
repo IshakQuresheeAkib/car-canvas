@@ -7,7 +7,7 @@ export default {
   theme: {
     colors:{
       darkRed: "#800d0d",
-      lightRed: "#c80000",
+      lightRed: "red",
       transparent: 'transparent',
       current: 'currentColor',
       white: '#ffffff',

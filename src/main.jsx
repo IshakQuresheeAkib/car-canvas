@@ -13,6 +13,7 @@ import AddProduct from './pages/AddProduct/AddProduct'
 import AuthProvider from './Provider/AuthProvider';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
+import PrivateRoutes from './routes/PrivateRoutes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,11 @@ const router = createBrowserRouter([
       },
       {        
         path:'/mycart',
-        element:<MyCart></MyCart>        
+        element:<PrivateRoutes><MyCart></MyCart></PrivateRoutes>       
       },
       {
         path:'/addproduct',
-        element:<AddProduct></AddProduct>
+        element:<PrivateRoutes><AddProduct></AddProduct></PrivateRoutes>
       },
       {
         path:'/login',

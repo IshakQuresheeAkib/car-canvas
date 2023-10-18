@@ -32,8 +32,8 @@ const Brands = () => {
 
     return (
         <div className="my-20">
-            <h1 className="text-4xl text-center font-semibold" data-aos='zoom-out-down' data-aos-delay="500"> The Pinnacle <br /> of <br /><span className='text-5xl bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
-            <hr className='w-48 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-l from-lightRed '/>
+            <h1 className="text-4xl text-center font-semibold" data-aos='zoom-out-down' data-aos-delay="500"> The Pinnacle <br /> of <br /><span className='text-5xl bg-gradient-to-bl bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
+            <hr className='w-48 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-bl from-lightRed '/>
             {/* <!-- Slider main container --> */}
             <>
         <Swiper
