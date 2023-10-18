@@ -1,66 +1,89 @@
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-
 import './brands.css';
-
-// import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
+AOS.init({
+    duration: 2000, 
+});
+AOS.refresh();
+
 
 const Brands = () => {
     return (
         <div className="my-20">
-            <h1 className="text-4xl text-center">Discover</h1>
+            <h1 className="text-4xl text-center font-semibold" data-aos='fade-in'>The Pinnacle <br /> of <br /><span className='bg-gradient-to-l bg-clip-text text-transparent from-darkRed  to-lightRed font-extrabold'>Auto Brands</span></h1>
+            <hr className='w-72 h-1 mt-2 border-none rounded-3xl mx-auto bg-gradient-to-l from-lightRed to-darkRed'/>
             {/* <!-- Slider main container --> */}
             <>
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        
-        modules={[EffectCoverflow, Pagination]}
-        className="mySwiper "
-      >
-        <SwiperSlide className='relative'>
-          <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full item'>
-          <h3 className='text-center text-white font-semibold mb-4 text-4xl absolute bottom-2'>Ferrari</h3></div>
+        <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+            }}
+            
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper "
+        >
+        <SwiperSlide>
+          <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>FERRARI</h3></div>
           <img src="https://i.ibb.co/SdBfmFS/fernando-hernandez-2k-F1y-Hd39-E-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+        <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>JAGUAR</h3></div>
           <img src="https://i.ibb.co/f0nKSKt/jeff-tumale-Az-X4h-RFGCe-E-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+        <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>PORSCHE</h3></div>
           <img src="https://i.ibb.co/b1GxxLF/jack-lucas-smith-U3-Ml-Yo-Ra-Lg0-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+        <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+          <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>ROLLS ROYCE</h3></div>
           <img src="https://i.ibb.co/FwJmQfD/kristin-wilson-al-EMgp-X6oo8-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+                <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>BMW</h3>
+            </div>
           <img src="https://i.ibb.co/bRsPB0t/hadi-yazdi-aznaveh-y-J2cq8-F-ZS0-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+                <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>TESLA</h3>
+            </div>
           <img src="https://i.ibb.co/L6SkQYf/alexander-shatov-Cys3-W7-MXDU-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+                <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>FORD</h3>
+            </div>
           <img src="https://i.ibb.co/pJBJLSc/dan-smedley-5-BCs-H-9-R8go-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+                <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>MUSTANG</h3>
+            </div>
           <img src="https://i.ibb.co/Y4g0LPL/matheus-frazao-RF3a-SRWd5z8-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
+            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
+                <h3 className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>LAMBORGHINI</h3>
+            </div>
           <img src="https://i.ibb.co/64yxgHg/chris-kursikowski-GADTSk-E0x-Ks-unsplash.jpg" />
         </SwiperSlide>
       </Swiper>
