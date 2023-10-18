@@ -1,17 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { stack as Menu } from 'react-burger-menu'
 import './navbar.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import useAuth from "../../hook/useAuth";
 
 const Navbar = () => {
 
-    
+    const {user,logOut} = useAuth();
+    const navigate = useNavigate();
+    console.log(user,logOut);
+
     AOS.init({
         duration: 1200, 
     });
     AOS.refresh();
  
+    const handleLogin = () => {
+        user ? logOut() : navigate('/login')
+    }
    
     return (
         <div className="relative w-full h-full text-white">
@@ -44,7 +51,9 @@ const Navbar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <button className="btn hover:bg-red-900 border-none bg-gradient-to-l from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm">Log Out</button>
+                    <button onClick={handleLogin} className="btn hover:bg-red-900 border-none bg-gradient-to-l from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm">
+                    {user? 'Log Out' : 'Log In'}
+                    </button>
                 </div>
             </nav>
             <div className="md:hidden fixed w-full top-0 text-white menu">

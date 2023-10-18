@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 
 const Root = () => {
     const {pathname} = useLocation();
-    console.log(pathname);
+
     return (
         <div className="overflow-hidden">
             <div>
