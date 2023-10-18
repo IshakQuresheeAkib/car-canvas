@@ -26,8 +26,6 @@ const Brands = () => {
     
   }
 
-  console.log(clickedText);
-
   
 
     return (

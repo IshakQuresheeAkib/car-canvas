@@ -1,12 +1,16 @@
 import { MdAlternateEmail } from 'react-icons/md';
 import { AiFillEye } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hook/useAuth';
-
+import { GrGoogle } from 'react-icons/gr';
+import { enqueueSnackbar } from 'notistack';
 
 const Login = () => {
 
-    const {user,loading,logOut,logIn,googleLogIn} = useAuth();
+    const {logIn,googleLogIn} = useAuth();
+    const {state} = useLocation()
+    const navigate = useNavigate();
+    console.log(state);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -17,8 +21,25 @@ const Login = () => {
         console.log(user);
 
         logIn(email,password)
-        .then(()=> alert('logged in'))
-        .catch(err=>alert(err))
+        .then(()=> {
+            enqueueSnackbar('Logged in successfully!',{variant:'success'})
+            navigate(state ? state : '/' )
+            form.reset();
+        })
+        .catch(err=>{
+            enqueueSnackbar(`${err}`,{variant:'error'})
+        })
+    }
+
+    const handleGoogle = () => {
+        googleLogIn()
+        .then(()=> {
+            enqueueSnackbar('Logged in successfully!',{variant:'success'})
+            navigate(state ? state : '/' )
+        })
+        .catch(err=>{
+            enqueueSnackbar(`${err}`,{variant:'error'})
+        })
     }
 
     return (
@@ -69,6 +90,12 @@ const Login = () => {
                     </div>            
                     
                 </form>
+                <div className='flex items-center w-72 mx-auto mt-6'>
+                    <hr className='w-20 text-darkRed mt-px mr-2'/>
+                    <h1 className='text-center'>continue with</h1>
+                    <hr className='w-20 text-darkRed mt-px ml-2'/>
+                </div>
+                <GrGoogle onClick={handleGoogle} className=' cursor-pointer hover:text-darkRed hover:scale-110 duration-300 mx-auto mt-2 text-2xl'></GrGoogle>
             </div>                    
         </section>
         
