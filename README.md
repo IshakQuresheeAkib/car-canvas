@@ -1,6 +1,8 @@
-# Car Canvas
+# Auto Mobile Selling Website
 
-(https://car-canvas.web.app/)[https://car-canvas.web.app/]
+## [ Car Canvas](https://car-canvas.web.app/)
+
+Live site: [https://car-canvas.web.app/](https://car-canvas.web.app/)
 
 <h1>Features:</h1>
 <hr/>
