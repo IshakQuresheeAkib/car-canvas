@@ -14,6 +14,9 @@ import AuthProvider from './Provider/AuthProvider';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import PrivateRoutes from './routes/PrivateRoutes/PrivateRoutes';
+import BrandItems from './pages/BrandItems/BrandItems';
+import ProductsDetails from './pages/ProductDetails/ProductsDetails';
+import Update from './pages/Update/Update';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,7 @@ const router = createBrowserRouter([
       },
       {        
         path:'/mycart',
+        loader:()=>fetch('http://localhost:5000/carts'),
         element:<PrivateRoutes><MyCart></MyCart></PrivateRoutes>       
       },
       {
@@ -40,7 +44,22 @@ const router = createBrowserRouter([
       {
         path:'/signup',
         element:<Signup></Signup>
-      }
+      },
+      {
+        path:'/products/:brand',
+        loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}`),
+        element:<BrandItems></BrandItems>
+      },
+      {
+        path:'/product/:id',
+        loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`),
+        element:<PrivateRoutes><ProductsDetails></ProductsDetails></PrivateRoutes>
+      },
+      {
+        path:'/update/:id',
+        loader:({params})=>fetch(`http://localhost:5000/products/update/${params.id}`),
+        element:<PrivateRoutes><Update></Update></PrivateRoutes>
+      },
     ]
   },
 ]);

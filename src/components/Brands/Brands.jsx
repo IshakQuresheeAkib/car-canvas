@@ -6,7 +6,7 @@ import './brands.css';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 AOS.init();
@@ -18,15 +18,13 @@ AOS.refresh();
 
 const Brands = () => {
 
-  const [clickedText,setClickedText] = useState('')
+  const navigate = useNavigate();
 
   const handleBrand = (e) => {
-    const text =  e.target.textContent;
-    setClickedText(text)
-    
+    const text =  e.target.textContent.toLowerCase();
+    console.log(text);    
+    navigate(`/products/${text}`)        
   }
-
-  
 
     return (
         <div className="my-20">
@@ -52,7 +50,7 @@ const Brands = () => {
         >
         <SwiperSlide>
           <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
-          <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl absolute bottom-10 translate-x-1/2 right-1/2 '>FERRARI</h3></div>
+          <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>FERRARI</h3></div>
           <img src="https://i.ibb.co/SdBfmFS/fernando-hernandez-2k-F1y-Hd39-E-unsplash-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
