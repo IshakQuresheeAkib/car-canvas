@@ -1,7 +1,6 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { enqueueSnackbar } from 'notistack';
-import { useNavigate } from 'react-router-dom';
 
     
 AOS.init({
@@ -19,7 +18,7 @@ const AddProduct = () => {
         const name = form.name.value;
         const brandName = form.brandName.value.toLowerCase();
         const image = form.image.value;
-        const type = form.name.value;
+        const type = form.type.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
@@ -27,7 +26,7 @@ const AddProduct = () => {
         const products = {name,brandName,image,type,price,rating,description}
         console.log(products);
          
-        fetch('http://localhost:5000/products',{
+        fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/products',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

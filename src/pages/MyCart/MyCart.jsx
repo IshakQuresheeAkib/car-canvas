@@ -1,3 +1,4 @@
+import { enqueueSnackbar } from "notistack";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
@@ -9,7 +10,7 @@ const MyCart = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/carts/${id}`,{
+        fetch(`https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/carts/${id}`,{
             method:"DELETE",
             headers:{
                 'content-type':'application/json'
@@ -21,6 +22,7 @@ const MyCart = () => {
             console.log(data);
             const remaining = products.filter(product=> product._id !== id)
             setProducts(remaining);
+            enqueueSnackbar('Product Deleted successfully!',{variant:'success'})
         })
     }
 

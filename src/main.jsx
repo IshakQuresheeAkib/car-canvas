@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {        
         path:'/mycart',
-        loader:()=>fetch('http://localhost:5000/carts'),
+        loader:()=>fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/carts'),
         element:<PrivateRoutes><MyCart></MyCart></PrivateRoutes>       
       },
       {
@@ -47,17 +47,17 @@ const router = createBrowserRouter([
       },
       {
         path:'/products/:brand',
-        loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}`),
+        loader:({params})=>fetch(`https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/products/${params.brand}`),
         element:<BrandItems></BrandItems>
       },
       {
         path:'/product/:id',
-        loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`),
+        loader:({params})=>fetch(`https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/product/${params.id}`),
         element:<PrivateRoutes><ProductsDetails></ProductsDetails></PrivateRoutes>
       },
       {
         path:'/update/:id',
-        loader:({params})=>fetch(`http://localhost:5000/products/update/${params.id}`),
+        loader:({params})=>fetch(`https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/products/update/${params.id}`),
         element:<PrivateRoutes><Update></Update></PrivateRoutes>
       },
     ]

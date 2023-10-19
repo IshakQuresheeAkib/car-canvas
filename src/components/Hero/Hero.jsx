@@ -4,7 +4,7 @@ import './hero.css'
 const Hero = () => {
     return (
         <div className="">                       
-            <div className="md:bg-[url('https://i.ibb.co/Mf4bKDP/peter-broomfield-m3m-ln-R90u-M-unsplash-1.jpg')] bg-[url('https://i.ibb.co/smbnvN8/olav-tvedt-o-Va-YMg-BMbs-unsplash-1.jpg')] w-screen h-screen text-white bg-cover bg-no-repeat kenburns-bottom-right">
+            <div className="md:bg-[url('https://i.ibb.co/Mf4bKDP/peter-broomfield-m3m-ln-R90u-M-unsplash-1.jpg')] bg-[url('https://i.ibb.co/smbnvN8/olav-tvedt-o-Va-YMg-BMbs-unsplash-1.jpg')] w-screen h-screen  text-white bg-cover bg-no-repeat kenburns-bottom-right ">
             <div className=" bg-gradient-to-b b from-black/90 w-full h-full z-0"></div>
             </div>
             <div className="text-5xl text-white absolute translate-y-1/2 md:top-[42%] top-[10%] md:left-16 md:text-left text-center ">

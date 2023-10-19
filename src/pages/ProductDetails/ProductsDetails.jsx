@@ -4,22 +4,24 @@ import { useLoaderData } from "react-router-dom";
 const ProductsDetails = () => {
 
     const product = useLoaderData(); 
-    console.log(product);
+   
 
-    const handleAddToCart = () => {
-        fetch(`http://localhost:5000/carts`,{
+    const handleAddToCart =  () => {
+        fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/carts',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
             },
             body:JSON.stringify(product)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if (data.insertedId) {
-                enqueueSnackbar('Product added to cart successfully!',{variant:'success'})
+        .then(res=>{
+            console.log(res);
+            if (res.ok) {
+                return enqueueSnackbar(`${product.name} added to cart successfully!`,{variant:'success'})
             }
+            enqueueSnackbar(`${product.name} Already Added!`,{variant:'error'})
         })
+        .then(()=>{})       
     }
 
     return (

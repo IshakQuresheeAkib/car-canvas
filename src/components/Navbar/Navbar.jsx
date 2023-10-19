@@ -33,8 +33,12 @@ const Navbar = () => {
                 </div>
                 <div className="space-x-10 md:flex hidden navitem" >
                     <NavLink to='/'>Home</NavLink>            
-                    <NavLink to='/addproduct'>Add Product</NavLink>
-                    <NavLink to='/mycart'>My Cart</NavLink>
+                    {
+                        user && <>
+                        <NavLink to='/addproduct'>Add Product</NavLink>
+                        <NavLink to='/mycart'>My Cart</NavLink>
+                        </>
+                    }
                     <NavLink to='/contact'>Contact</NavLink>
                 </div>
                 <div className="flex items-center gap-2 md:mr-10">
