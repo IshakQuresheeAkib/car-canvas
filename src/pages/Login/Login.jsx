@@ -48,8 +48,7 @@ const Login = () => {
                 <div className="mx-auto max-w-lg text-center">
                     <h1 className="text-2xl font-bold sm:text-3xl">Welcome Back!</h1>
                     <p className="mt-4 text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-                        eaque error neque ipsa culpa autem, at itaque nostrum!
+                         {`Log in to your account to access your personalized dashboard, view your saved cars, and continue your car-buying journey.`}
                     </p>
                 </div>
                 <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4">

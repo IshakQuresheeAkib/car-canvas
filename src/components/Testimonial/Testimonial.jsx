@@ -39,7 +39,7 @@ const Testimonial = () => {
                         <SwiperSlide className="testimonial">
                             <FaQuoteLeft className='text-5xl text-white mb-5'></FaQuoteLeft>
                             <div className='text-white px-10 md:md-36'>
-                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full">
+                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-40 md:translate-x-full">
                                     <img src="https://i.ibb.co/xfLVTwQ/mitchell-luo-CMng5-Bz-Pv1o-unsplash.jpg" alt="" className='rounded-full'/>
                                 </div>
                                 <h2 className='mt-7'>Abil Qureshee</h2>                       
@@ -52,7 +52,7 @@ const Testimonial = () => {
                         <SwiperSlide className="testimonial">
                             <FaQuoteLeft className='text-5xl text-white mb-5'></FaQuoteLeft>
                             <div className='text-white px-10 md:md-36'>
-                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full"  >
+                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-40 md:translate-x-full"  >
                                     <img src="https://i.ibb.co/b2c6J9M/wepik-export-20231013215817-C2-TE.jpg" alt="" className='rounded-full'/>
                                 </div>
                                 <h2 className='mt-7'>John Mitchell</h2>                       
@@ -65,7 +65,7 @@ const Testimonial = () => {
                         <SwiperSlide className="testimonial">
                             <FaQuoteLeft className='text-5xl text-white mb-5'></FaQuoteLeft>
                             <div className='text-white px-10 md:md-36'>
-                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full"  >
+                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-40 md:translate-x-full"  >
                                     <img src="https://i.ibb.co/hBHdZ5w/christian-buehner-DIt-Ylc26z-VI-unsplash.jpg" alt="" className='rounded-full'/>
                                 </div>
                                 <h2 className='mt-7'>Luiz Dias</h2>                       
@@ -79,7 +79,7 @@ const Testimonial = () => {
                         <SwiperSlide className="testimonial">
                             <FaQuoteLeft className='text-5xl text-white mb-5'></FaQuoteLeft>
                             <div className='text-white px-10 md:md-36 '>
-                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full"  >
+                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-40 md:translate-x-full"  >
                                     <img src="https://i.ibb.co/ZgD2L3t/redd-f-pz-OUnvx9c1-E-unsplash.jpg" alt="" className='rounded-full'/>
                                 </div>
                                 <h2 className='mt-7'>Soun Wing</h2>                       
