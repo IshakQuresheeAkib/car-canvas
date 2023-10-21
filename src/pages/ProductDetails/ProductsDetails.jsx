@@ -25,12 +25,12 @@ const ProductsDetails = () => {
     }
 
     return (
-        <div>
-            <div className="card card-body w-96" >
+        <div className="mx-4">
+            <div className="card card-body mt-36" >
                 <img src={product.image} alt="" />
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
-                <button onClick={handleAddToCart} className="btn hover:bg-red-900 border-none bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm">Add to Cart</button>
+                <button onClick={handleAddToCart} className="btn hover:bg-red-900 border-none bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm w-72 ">Add to Cart</button>
             </div>
         </div>
     );

@@ -27,7 +27,7 @@ const Signup = () => {
 
         createUser(email,password)
         .then(()=>{
-            enqueueSnackbar('done',{variant:'success'})
+            enqueueSnackbar('Account created successfully!',{variant:'success'})
         })
         .catch(err=>{
             enqueueSnackbar(`${err}`,{variant:'error'})

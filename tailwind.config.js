@@ -17,6 +17,7 @@ export default {
       tahiti: '#3ab7bf',
       silver: '#ecebff',
       black:'black',
+      orange:'#FFA500'
     },
     extend: {},
   },

@@ -1,9 +1,10 @@
 import { enqueueSnackbar } from "notistack";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Update = () => {
 
     const product = useLoaderData();
+    const navigate = useNavigate();
     console.log(product);
     const {_id,name,brandName,type,price,rating,image} = product;
     console.log(_id);
@@ -32,6 +33,7 @@ const Update = () => {
         .then(data=>{
             console.log(data);
             enqueueSnackbar('Product Updated successfully!',{variant:'success'})
+            navigate(`/products/${brandName}`)
         })
 
         fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/carts',{
@@ -77,7 +79,7 @@ const Update = () => {
                                 <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Price</label>
                             </div>
                             <div className="relative z-0">
-                                <input type="text" name="rating" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" defaultValue={rating}/>
+                                <input type="number" step={0.01} name="rating" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" defaultValue={rating}/>
                                 <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Rating</label>
                                 
                             </div>

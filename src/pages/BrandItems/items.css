@@ -1,0 +1,19 @@
+.swiper {
+    width: screen;
+    height: screen;
+    box-shadow: none;
+  }
+  
+  .advertisement {
+    background-position: center;
+    background-size:contain;
+    box-shadow: none;
+    height: 90vh;
+  }
+
+  
+  .advertisement img {
+    display: block;
+    width: screen;
+    object-fit:fill;
+  }

@@ -1,13 +1,23 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
+import DotLoader from "react-spinners/ClipLoader";
 
 const PrivateRoutes = ({children}) => {
-
+    
     const {user,loading} = useAuth();
     const {pathname} = useLocation();
-
+    
+    
+    
+    
     if (loading) {
-        return <p className="text-5xl">Loading...</p>
+        return <div className="h-screen w-screen flex justify-center items-center">
+        <DotLoader
+    color="#911717"
+    size={72}
+  />
+    </div>
+        
     }
 
     if (!user) {

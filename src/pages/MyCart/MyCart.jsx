@@ -1,6 +1,11 @@
 import { enqueueSnackbar } from "notistack";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
+
 
 const MyCart = () => {
 
@@ -27,15 +32,15 @@ const MyCart = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto mt-36">
-            <h1 className="text-5xl text-bold my-10 text-center">My Carts</h1>
-            <div className="flex gap-10  mb-36">
+        <div className="max-w-7xl md:mx-auto mx-5 mt-36">
+            <h1 className="text-5xl mb-20 font-bold tracking-widest mt-10 text-center">My Carts</h1>
+            <div className="flex md:flex-nowrap flex-wrap justify-center gap-10 mb-36">
                 {products && 
-                    products.map(product => <div key={product._id} className="card p-5 border w-80">
-                        <img src={product.image} alt="" />
+                    products.map(product => <div key={product._id} className="card card-body p-5 border w-80 flex flex-col justify-between" data-aos='zoom-in'>
+                        <img src={product.image} alt="" className="h-full"/>
                         <h2 className="card-title">
                         {product.name}
-                        <div className="badge badge-outline text-xs">{product.brandName.toUpperCase()}</div>
+                        <div className="badge badge-outline text-xs h-fit text-center">{product.brandName.toUpperCase()}</div>
                         </h2>
                         <small>{product.type}</small>
                         <h2 className="font-bold mt-3">$ {product.price}</h2>

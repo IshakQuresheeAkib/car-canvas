@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import useAuth from "../../hook/useAuth";
 import { enqueueSnackbar } from 'notistack';
+import DarkMode from "../../darkmode/DarkMode";
 
 const Navbar = () => {
 
@@ -32,16 +33,13 @@ const Navbar = () => {
                     <h1 className="font-bold md:text-3xl text-2xl ml-16 md:mt-6 ">Car <span className="bg-gradient-to-bl bg-clip-text text-transparent from-lightRed to-darkRed">Canvas</span></h1>
                 </div>
                 <div className="space-x-10 md:flex hidden navitem" >
-                    <NavLink to='/'>Home</NavLink>            
-                    {
-                        user && <>
-                        <NavLink to='/addproduct'>Add Product</NavLink>
-                        <NavLink to='/mycart'>My Cart</NavLink>
-                        </>
-                    }
-                    <NavLink to='/contact'>Contact</NavLink>
+                    <NavLink to='/'>Home</NavLink>                            
+                    <NavLink to='/addproduct'>Add Product</NavLink>
+                    <NavLink to='/mycart'>My Cart</NavLink>                        
                 </div>
-                <div className="flex items-center gap-2 md:mr-10">
+                
+                <div className="flex items-center gap-5 md:mr-10">               
+                   <div>
                    {
                     user &&  
                     <div className="dropdown dropdown-end">
@@ -54,19 +52,24 @@ const Navbar = () => {
                         <li><a>{user?.displayName}</a></li>
                         <li><a>{user?.email}</a></li>
                     </ul>
-                </div>
+                    </div>
                    }
-                    <button onClick={handleLogin} className="btn hover:bg-red-900 border-none bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm">
+                   </div>
+                   <DarkMode></DarkMode>
+                    <button onClick={handleLogin} className="btn md:block hidden hover:bg-red-900 border-none bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case md:btn-md btn-sm">
                     {user? 'Log Out' : 'Log In'}
                     </button>
                 </div>
             </nav>
-            <div className="md:hidden fixed w-full top-0 text-white menu">
-                <Menu className="bg-black text-white ">
+            <div className="md:hidden fixed w-full z-50 top-0 text-white menu">                
+                <Menu className="bg-black text-white ">                   
                     <NavLink className="menu-item" to='/'>Home</NavLink>            
                     <NavLink className="menu-item" to='/addproduct'>Add Product</NavLink>
                     <NavLink className="menu-item" to='/mycart'>My Cart</NavLink>
-                    <NavLink className="menu-item" to='/contact'>contact</NavLink>
+                    <NavLink className="mt-10" to='/contact'>contact</NavLink>
+                    <button onClick={handleLogin} className="btn hover:bg-red-900 border-none bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case mt-10">
+                    {user? 'Log Out' : 'Log In'}
+                    </button>
                 </Menu>
             </div>
         </div>
