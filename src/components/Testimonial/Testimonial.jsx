@@ -39,7 +39,7 @@ const Testimonial = () => {
                         <SwiperSlide className="testimonial">
                             <FaQuoteLeft className='text-5xl text-white mb-5'></FaQuoteLeft>
                             <div className='text-white px-10 md:md-36'>
-                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full"  >
+                                <div className="w-28 h-28 mx-auto md:absolute bottom-0 left-36 md:translate-x-full">
                                     <img src="https://i.ibb.co/xfLVTwQ/mitchell-luo-CMng5-Bz-Pv1o-unsplash.jpg" alt="" className='rounded-full'/>
                                 </div>
                                 <h2 className='mt-7'>Abil Qureshee</h2>                       

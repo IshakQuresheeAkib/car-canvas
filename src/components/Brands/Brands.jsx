@@ -43,8 +43,7 @@ const Brands = () => {
             depth: 100,
             modifier: 1,
             slideShadows: true,
-            }}
-            
+            }}            
             modules={[EffectCoverflow, Pagination]}
             className="mySwiper "
         >
@@ -69,24 +68,12 @@ const Brands = () => {
           <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>JAGUAR</h3></div>
           <img src="https://i.ibb.co/f0nKSKt/jeff-tumale-Az-X4h-RFGCe-E-unsplash-1.jpg" />
         </SwiperSlide>
-        {/* <SwiperSlide>
-            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
-                <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>TESLA</h3>
-            </div>
-          <img src="https://i.ibb.co/L6SkQYf/alexander-shatov-Cys3-W7-MXDU-unsplash-1.jpg" />
-        </SwiperSlide> */}
         <SwiperSlide>
             <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
                 <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>FORD</h3>
             </div>
           <img src="https://i.ibb.co/pJBJLSc/dan-smedley-5-BCs-H-9-R8go-unsplash-1.jpg" />
         </SwiperSlide>
-        {/* <SwiperSlide>
-            <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
-                <h3 onClick={handleBrand} className='text-center text-white font-semibold text-4xl p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>MUSTANG</h3>
-            </div>
-          <img src="https://i.ibb.co/Y4g0LPL/matheus-frazao-RF3a-SRWd5z8-unsplash-1.jpg" />
-        </SwiperSlide> */}
         <SwiperSlide>
             <div className='absolute hover:bg-gradient-to-t from-darkRed to-black/60 w-full h-full' >
                 <h3 onClick={handleBrand} className='text-center text-white font-semibold text-[30px] p-2 absolute bottom-10 translate-x-1/2 right-1/2 hover:scale-105 cursor-pointer hover:border'>LAMBORGHINI</h3>
