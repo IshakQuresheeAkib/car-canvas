@@ -1,32 +1,49 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { enqueueSnackbar } from 'notistack';
-
-    
-AOS.init({
-    duration: 200, 
-});
-AOS.refresh();
+import { Helmet } from 'react-helmet-async';
+import useImage from '../../hook/useImage';
+import { useEffect, useState } from 'react';
+import { Button } from '@material-tailwind/react';
+import ColorTitle from '../../components/ColorTitle/ColorTitle';
+import useAuth from '../../hook/useAuth'
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 
 const AddProduct = () => {
 
+    
+useEffect(()=>{
+    AOS.init({
+        duration: 1200, 
+    });
+    AOS.refresh();
+},[])
 
-    const handleAddProduct = e => {
+    const [brandName,setBrandName] = useState('brands')
+    const {user} = useAuth()
+    const [image,setImage] = useState('')
+    const {imageUrl} = useImage(image)    
+    
+    const handleAddProduct = (e) => {
         e.preventDefault();
+        console.log('hello');
         const form = e.target;
-        const name = form.name.value;
-        const brandName = form.brandName.value.toLowerCase();
-        const image = form.image.value;
-        const type = form.type.value;
+        const name = form.name.value;       
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
 
-        const products = {name,brandName,image,type,price,rating,description}
+        const products = {name,brandName,image:imageUrl,price,rating,description,email:user?.email}
         console.log(products);
-         
-        fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/products',{
+        if (!image?.length) {
+            return enqueueSnackbar('Upload an image of your product!',{variant:'error'});
+        }
+        if (brandName === 'brands' ) {
+            return enqueueSnackbar('Please select a brand name!',{variant:'error'});
+        }
+        if (imageUrl) {
+            fetch('http://localhost:5000/products',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -41,53 +58,48 @@ const AddProduct = () => {
                 form.reset();
             }
         })
+        }
         
     }
-
+    
     return (
         <div className='my-24'>
+            <Helmet>
+                <title>Add Your Vehicle</title>
+            </Helmet>
             <div className="flex min-h-screen items-center justify-start bg-white px-3" data-aos='zoom-out-down'>
-                <div className="mx-auto w-full max-w-lg">
-                <h1 className="text-5xl mb-20 font-bold mt-10 text-center" data-aos='zoom-in-down'>Add Your Vehicle</h1>
-                    <p className="mt-3">Seize the Opportunity to Showcase Your Vehicle - List It with Us Today!</p>
-
-                    <form onSubmit={handleAddProduct} className="mt-10">
+                <div className="mx-auto w-full max-w-2xl text-center">
+                    <h1 className="xl:text-6xl text-5xl text-center font-semibold mb-7">Add Your<ColorTitle>Vehicle</ColorTitle>
+                    </h1>
+                    <p className="mt-3 text-sm">Seize the Opportunity to Showcase Your Vehicle - List It with Us Today!</p>
+                    <form onSubmit={handleAddProduct} className="mt-16">
                         <div className="grid gap-6 sm:grid-cols-2">
-                            <div className="relative z-0">
-                                <input type="text" name="name" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Name</label>
-                            </div>
-                            <div className="relative z-0">
-                                <input type="text" name="brandName" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Brand Name</label>
-                            </div>
-                            <div className="relative z-0">
-                                <input type="text" name="image" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Image URL</label>
-                            </div>
-                            <div className="relative z-0">
-                                <input type="text" name="type" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Type</label>
-                            </div>
-                            <div className="relative z-0">
-                                <input type="number" name="price" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Price</label>
-                            </div>
-                            <div className="relative z-0">
-                                <input type="number" step={0.01} name="rating" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"/>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Rating</label>
-                                
-                            </div>
-                            <div className="relative z-0 col-span-2">
-                                <textarea name="description" rows="5" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" "></textarea>
-                                <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Short Description</label>
-                            </div>
+                            <input type="text" name="name" className="w-full rounded-lg border-b-2 h-14 p-4 text-sm shadow-sm" placeholder="Name"  required/>
+                            <select defaultValue='brands' onChange={e=>setBrandName(e.target.value)} className='w-full cursor-pointer rounded-lg border-b-2 h-14 p-4 text-sm font-normal shadow-sm' required>
+                                <option value="brands" disabled readOnly>Brand Name</option>
+                                <option value='porsche'>Porsche</option>
+                                <option value='rolls royce'>Rolls Royce</option>
+                                <option value='bmw'>BMW</option>
+                                <option value='jaguar'>Jaguar</option>
+                                <option value='ford'>Ford</option>
+                                <option value='lamborghini'>Lamborghini</option>
+                            </select>
+                            
+                            <input type="number" name="price" min='0' className="w-full rounded-lg border-b-2 h-14 p-4 text-sm shadow-sm" placeholder="Price"  required/>
+                            <input type="number" max='5' min='0' step="0.1" name="rating" className="w-full rounded-lg border-b-2 h-14 p-4 text-sm shadow-sm" placeholder="Rating" required />
+                            <label className='flex justify-center items-center cursor-pointer shadow-sm border-b-2 rounded-lg'>
+                            {
+                                !image ? <div className='flex flex-col items-center justify-center '>
+                                <FaCloudUploadAlt className='text-2xl text-black/30'/>
+                                <span className='text-sm text-black/30 normal-case font-medium'>Upload An Image</span>
+                                </div> : ''
+                            }
+                            <input type="file" name='image' onChange={e=>setImage(e.target.files)} className={`${!image ? "hidden" : ''} file:hidden text-xs`} placeholder="Image URL"/>
+                            </label>
+                            <textarea name="description" rows="5" className="w-full rounded-lg border-b-2 p-4 text-sm shadow-sm" placeholder="Short Description"  required/>
                         </div>
-                        <button type="submit" className="mt-5  bg-black px-10 btn  bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case">Add Products</button>
+                        <Button className='bg-gradient-to-bl from-lightRed to-darkRed mt-10' type='submit'>Add Products</Button>
                     </form>
-                </div>
-                <div>
-
                 </div>
             </div>
         </div>

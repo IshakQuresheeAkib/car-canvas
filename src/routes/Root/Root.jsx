@@ -3,7 +3,9 @@ import Footer from '../../components/Footer/Footer'
 import Home from "../../pages/Home/Home";
 import Navbar from "../../components/Navbar/Navbar";
 import useAuth from "../../hook/useAuth";
-import DotLoader from "react-spinners/ClipLoader";
+import loadingAnim from '../../../public/loadingAnim.json'
+import Lottie from "lottie-react";
+
 
 const Root = () => {
     const {pathname} = useLocation();
@@ -13,10 +15,7 @@ const Root = () => {
         <div className="overflow-hidden">
             {
                 loading ? <div className="h-screen w-screen flex justify-center items-center">
-                    <DotLoader
-                color="#911717"
-                size={72}
-              />
+                    <Lottie animationData={loadingAnim} className="w-96"></Lottie>
                 </div>
                 :
                 <div>

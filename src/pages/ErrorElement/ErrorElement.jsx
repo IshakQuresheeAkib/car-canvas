@@ -9,7 +9,7 @@ const ErrorElement = () => {
         <div>
            <section className='body'>
     <div className="wrap">
-        <video className="video" poster="https://knife.media/wp-content/themes/knife/assets/images/poster-error.jpg" autoPlay preload loop muted>
+        <video className="video" poster="https://knife.media/wp-content/themes/knife/assets/images/poster-error.jpg" autoPlay loop muted>
             <source src="https://knife.media/wp-content/themes/knife/assets/video/video-error.mp4" type="video/mp4"/>
         </video>
 

@@ -1,6 +1,8 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
-import DotLoader from "react-spinners/ClipLoader";
+import Lottie from "lottie-react";
+import loadingAnim from '../../../public/loadingAnim.json'
+
 
 const PrivateRoutes = ({children}) => {
     
@@ -12,10 +14,7 @@ const PrivateRoutes = ({children}) => {
     
     if (loading) {
         return <div className="h-screen w-screen flex justify-center items-center">
-        <DotLoader
-    color="#911717"
-    size={72}
-  />
+        <Lottie animationData={loadingAnim} className="w-96"></Lottie>
     </div>
         
     }

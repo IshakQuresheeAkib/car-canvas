@@ -22,7 +22,7 @@ const Update = () => {
         const updatededProduct = {_id,name,brandName,image,type,price,rating}
         console.log(updatededProduct);
         
-        fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/products',{
+        fetch('http://localhost:5000/products',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -36,7 +36,7 @@ const Update = () => {
             navigate(`/products/${brandName}`)
         })
 
-        fetch('https://car-canvas-server-9873fualf-ishak-qureshee-akibs-projects.vercel.app/carts',{
+        fetch('http://localhost:5000/carts',{
             method:'PATCH',
             headers:{
                 'content-type':'application/json'
@@ -84,7 +84,7 @@ const Update = () => {
                                 
                             </div>
                         </div>
-                        <button type="submit" className="mt-5  bg-black px-10 btn  bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case">Update</button>
+                        <button type="submit" className="mt-5  bg-black px-10 bg-gradient-to-bl from-lightRed to-darkRed text-white normal-case">Update</button>
                     </form>
                 </div>
                 <div>
